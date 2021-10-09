@@ -3,7 +3,6 @@ let computerWins = 0;
 let playerWins = 0;
 let compPlay = ["rock", "raper", "scissors"];
 
-
 const divCount = document.getElementById('divCount');
 const divPlayerCount = document.createElement('div');
 const divComputerCount = document.createElement('div');
@@ -16,8 +15,6 @@ function displayCount(){
     divPlayerCount.textContent = "player: " + playerWins;
     divComputerCount.textContent = "computer: " + computerWins;   
 }
-
-
 
 const rockButton = document.getElementById('rock');
 const paperButton = document.getElementById('paper');
@@ -43,6 +40,7 @@ function computerPlay(plays){
 }
 
 let computerSelection = computerPlay(compPlay);
+
 function playRound(playerSelection, computerSelection){
     if(playerSelection == "rock"){
         if(computerSelection == "paper"){
@@ -112,16 +110,13 @@ function playRound(playerSelection, computerSelection){
     }
 }
 
-
 function restartGame(){
     rockButton.disabled = true;
     paperButton.disabled = true;
     scissorsButton.disabled = true;
     result.value = '';
     const finalResult = document.getElementById('final-result-modal');
-    finalResult.style.display = "flex";
-    finalResult.style.flexDirection = "column";
-    finalResult.style.alignItems = "center";
+    finalResult.setAttribute('id', 'finalResult');
     const textResult = document.createElement('p');
     textResult.setAttribute('id', 'textResult');
     if(computerWins > playerWins){
@@ -140,7 +135,6 @@ function restartGame(){
     computerWins = 0;
     playerWins = 0;
 }
-
 
 function reload(){
     location.reload();
